@@ -1,0 +1,34 @@
+<table class="table table-bordered table-dark" id = "Schedule">
+  <thead>
+    <tr>
+      <th scope="col">Time</th>
+      <th scope="col">Monday</th>
+      <th scope="col">Tuesday</th>
+      <th scope="col">Wednesday </th>
+      <th scope="col">Thursday </th>
+      <th scope="col">Friday </th>
+      <th scope="col">Saturday </th>
+      <th scope="col">Sunday </th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let row of rows">
+      <th style="width: 2%;" scope="row">{{ row }}</th>
+      <td style="width: 14%;" id = "0" selected="0" (click)="tdClicked($event)"></td>
+      <td style="width: 14%;" id = "1" selected="0" (click)="tdClicked($event)"></td>
+      <td style="width: 14%;" id = "2" selected="0" (click)="tdClicked($event)"></td>
+      <td style="width: 14%;" id = "3" selected="0" (click)="tdClicked($event)"></td>
+      <td style="width: 14%;" id = "4" selected="0" (click)="tdClicked($event)"></td>
+      <td style="width: 14%;" id = "5" selected="0" (click)="tdClicked($event)"></td>
+      <td style="width: 14%;" id = "6" selected="0" (click)="tdClicked($event)"></td>
+    </tr>
+  </tbody>
+</table>
+
+<button style="  color: white; background-color:black " class="button1" (click)="tdClickedBored($event)">I'm Bored</button>
+<button style="  color: white; background-color:black " class="button1" (click)="tdClickedEvent($event)">Suggest Me Event</button>
+<button style="  color: white; background-color:black " class="button1" (click)="tdGiveMealSuggestion($event)">Give Meal Suggestion</button>
+<button style="  color: white; background-color:black " class="button1" (click)="tdSaveSchedule($event)">Save Schedule</button>
+
+
+
