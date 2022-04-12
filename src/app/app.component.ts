@@ -221,13 +221,13 @@ export class AppComponent {
         Authorization: `Client-ID ${this.clientId}`
       }),
     };
-    var base64Canvas ;
     html2canvas(document.getElementById('Schedule')!).then((canvas) => {
-        base64Canvas = canvas.toDataURL("image/jpeg").split(';base64,')[1];
+        var base64Canvas = canvas.toDataURL().replace(/.*,/, '');
+        this.http.post('https://api.imgur.com/3/image', base64Canvas , httpOptions);
+
  
     });
 
-    const imageData =  this.http.post<any>('https://api.imgur.com/3/image', base64Canvas , httpOptions).toPromise();
         
     console.log("upload");
    
