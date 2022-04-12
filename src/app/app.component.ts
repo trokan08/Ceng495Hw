@@ -223,10 +223,12 @@ export class AppComponent {
     };
     html2canvas(document.getElementById('Schedule')!).then((canvas) => {
         var base64Canvas = canvas.toDataURL().replace(/.*,/, '');
-        this.http.post('https://api.imgur.com/3/image', base64Canvas , httpOptions);
+        this.http.post('https://api.imgur.com/3/image', base64Canvas , httpOptions).subscribe((response)=>{
+          console.log(response);
+        }
 
  
-    });
+    );
 
         
     console.log("upload");
