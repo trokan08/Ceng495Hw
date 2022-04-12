@@ -88,7 +88,7 @@ export class AppComponent {
   tdClickedBored(event:any)
   {
     if(this.lastObject === null) return;
-    this.posts =  this.http.get('http://www.boredapi.com/api/activity/').subscribe((response)=>{
+    this.posts =  this.http.get('https://www.boredapi.com/api/activity/').subscribe((response)=>{
       let resSTR = JSON.stringify(response);
       let resJSON = JSON.parse(resSTR);
       console.log(resJSON);
