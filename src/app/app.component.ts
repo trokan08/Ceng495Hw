@@ -226,8 +226,8 @@ export class AppComponent {
         this.http.post('https://api.imgur.com/3/image', base64Canvas , httpOptions).subscribe((response)=>{
           let resSTR = JSON.stringify(response);
           let resJSON = JSON.parse(resSTR);
-          this.link = resJSON['data'].type;
-          console.log(resJSON['data'].type);
+          this.link = resJSON['data'].link;
+          console.log(resJSON['data'].link);
           console.log(resJSON['data']);
         },(error)=>{
           console.log("error");
