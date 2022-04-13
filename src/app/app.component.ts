@@ -18,7 +18,7 @@ export class AppComponent {
   rows: string[] = ["08:30","09:30","10:30","11:30","12:30","13:30","14:30","15:30","16:30","17:30","18:30","19:30","20:30","21:30","22:30","23:30","24:30",];
   lastObject: any; // last clicked block
   posts: any;
-  
+  link = "";
   constructor(private http:HttpClient) { } // constructor for HttpClient
 
   // when we write something with keyboard write it to block
@@ -224,7 +224,11 @@ export class AppComponent {
     html2canvas(document.getElementById('Schedule')!).then((canvas) => {
         var base64Canvas = canvas.toDataURL().replace(/.*,/, '');
         this.http.post('https://api.imgur.com/3/image', base64Canvas , httpOptions).subscribe((response)=>{
-          console.log(response);
+          let resSTR = JSON.stringify(response);
+          let resJSON = JSON.parse(resSTR);
+          this.link = resJSON['data'].type;
+          console.log(resJSON['data'].type);
+          console.log(resJSON['data']);
         },(error)=>{
           console.log("error");
       }
