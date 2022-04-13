@@ -225,7 +225,12 @@ export class AppComponent {
         var base64Canvas = canvas.toDataURL().replace(/.*,/, '');
         this.http.post('https://api.imgur.com/3/image', base64Canvas , httpOptions).subscribe((response)=>{
           console.log(response);
-        }
+        },(error)=>{
+          console.log("error");
+      }
+      
+      );
+    }
 
  
     );
@@ -233,8 +238,10 @@ export class AppComponent {
         
     console.log("upload");
    
-  }
+    };
 }
+  
+
 
   
 
